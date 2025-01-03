@@ -1,11 +1,9 @@
 import Property from "../models/Property.js";
 
-// Create a new property
 export const createProperty = async (req, res) => {
   try {
     const { name, address, location, equity, duration } = req.body;
 
-    // Handle file upload (if using a library like multer)
     const image = req.file ? req.file.path : null;
 
     const newProperty = new Property({
@@ -53,7 +51,6 @@ export const updateProperty = async (req, res) => {
   }
 };
 
-// Delete property
 export const deleteProperty = async (req, res) => {
   const { id } = req.params;
 

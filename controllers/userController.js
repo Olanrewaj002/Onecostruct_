@@ -4,7 +4,6 @@ import User from "../models/User.js";
 
 const JWT_SECRET = process.env.JWT_SECRET || "your-jwt-secret";
 
-// Register User
 export const registerUser = async (req, res) => {
   const { email, password, isAdmin } = req.body;
 
@@ -19,7 +18,6 @@ export const registerUser = async (req, res) => {
   }
 };
 
-// Update your loginUser function in userController.js
 export const loginUser = async (req, res) => {
     const { email, password } = req.body;
     
@@ -75,7 +73,7 @@ export const logoutUser = (req, res) => {
       console.error("Error destroying session:", err);
       return res.status(500).json({ message: "Error logging out" });
     }
-    res.clearCookie("connect.sid"); // Clear the session cookie
+    res.clearCookie("connect.sid"); 
     res.redirect("/login.html");
   });
 };

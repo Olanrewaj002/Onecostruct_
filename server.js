@@ -22,11 +22,11 @@ app.use(
   session({
     secret: process.env.SESSION_SECRET || "your-secret-key",
     resave: false,
-    saveUninitialized: false, // Changed to false for better security
+    saveUninitialized: false, 
     cookie: {
       secure: process.env.NODE_ENV === "production",
-      httpOnly: true, // Protect against XSS
-      maxAge: 3600000, // 1 hour
+      httpOnly: true, 
+      maxAge: 3600000, 
     },
   })
 );

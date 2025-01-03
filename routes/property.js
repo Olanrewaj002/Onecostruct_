@@ -4,7 +4,6 @@ import multer from "multer";
 
 const router = express.Router();
 
-// Multer configuration for file uploads
 const storage = multer.diskStorage({
   destination: (req, file, cb) => {
     console.log("Uploading to directory: uploads/");
@@ -19,7 +18,6 @@ const storage = multer.diskStorage({
 
 const upload = multer({ storage });
 
-// Route to create a property
 router.post("/create-property", upload.single("image"), createProperty);
 router.get("/", getProperties);
 router.put('/:id', updateProperty); 

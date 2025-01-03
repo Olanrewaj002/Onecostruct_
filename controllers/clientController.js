@@ -29,7 +29,6 @@ export const registerClient = async (req, res) => {
 
 export const getAllClients = async (req, res) => {
   try {
-    // Fetch all clients from the database
     const clients = await Client.find();
 
     if (clients.length === 0) {
