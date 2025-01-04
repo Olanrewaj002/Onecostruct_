@@ -1,6 +1,4 @@
-import jwt from "jsonwebtoken";
 
-const JWT_SECRET = process.env.JWT_SECRET || "your-jwt-secret";
 
 // Middleware to verify JWT
 export const isAuthenticated = (req, res, next) => {
