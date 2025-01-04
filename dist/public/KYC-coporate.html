@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>KYC Corporate Form</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container mt-5">
+        <h2 class="text-center mb-4">KYC Corporate Form</h2>
+        <form>
+            <!-- Corporate Section -->
+            <h4 class="mt-4 mb-3">Corporate Details</h4>
+            <div class="mb-4">
+                <label for="corporateName" class="form-label">Corporate Name</label>
+                <input type="text" class="form-control" id="corporateName" placeholder="Enter corporate name">
+            </div>
+            <div class="mb-4">
+                <label for="cacCert" class="form-label">CAC Certificate</label>
+                <input type="file" class="form-control" id="cacCert">
+            </div>
+
+            <!-- Directors Section -->
+            <h4 class="mt-5 mb-3">Directors</h4>
+            <div id="directorsSection">
+                <!-- Director 1 -->
+                <div class="mb-4">
+                    <label for="directorName1" class="form-label">Full Name (Director 1)</label>
+                    <input type="text" class="form-control" id="directorName1" placeholder="Enter director's name">
+                </div>
+                <div class="mb-4">
+                    <label for="directorAddress1" class="form-label">Address (Director 1)</label>
+                    <input type="text" class="form-control" id="directorAddress1" placeholder="Enter director's address">
+                </div>
+                <div class="mb-4">
+                    <label for="nextOfKin1" class="form-label">Next of Kin (Director 1)</label>
+                    <input type="text" class="form-control" id="nextOfKin1" placeholder="Enter next of kin">
+                </div>
+                <div class="mb-4">
+                    <label for="dob1" class="form-label">Date of Birth (Director 1)</label>
+                    <input type="date" class="form-control" id="dob1">
+                </div>
+                <div class="mb-4">
+                    <label for="nin1" class="form-label">NIN (Director 1)</label>
+                    <input type="text" class="form-control" id="nin1" placeholder="Enter NIN">
+                </div>
+                <div class="mb-4">
+                    <label for="idDocument1" class="form-label">Any of the Following (Driver's License, Voter's Card, or International Passport) (Director 1)</label>
+                    <input type="file" class="form-control" id="idDocument1">
+                </div>
+
+                <!-- Director 2 -->
+                <div class="mb-4">
+                    <label for="directorName2" class="form-label">Full Name (Director 2)</label>
+                    <input type="text" class="form-control" id="directorName2" placeholder="Enter director's name">
+                </div>
+                <div class="mb-4">
+                    <label for="directorAddress2" class="form-label">Address (Director 2)</label>
+                    <input type="text" class="form-control" id="directorAddress2" placeholder="Enter director's address">
+                </div>
+                <div class="mb-4">
+                    <label for="nextOfKin2" class="form-label">Next of Kin (Director 2)</label>
+                    <input type="text" class="form-control" id="nextOfKin2" placeholder="Enter next of kin">
+                </div>
+                <div class="mb-4">
+                    <label for="dob2" class="form-label">Date of Birth (Director 2)</label>
+                    <input type="date" class="form-control" id="dob2">
+                </div>
+                <div class="mb-4">
+                    <label for="nin2" class="form-label">NIN (Director 2)</label>
+                    <input type="text" class="form-control" id="nin2" placeholder="Enter NIN">
+                </div>
+                <div class="mb-4">
+                    <label for="idDocument2" class="form-label">Any of the Following (Driver's License, Voter's Card, or International Passport) (Director 2)</label>
+                    <input type="file" class="form-control" id="idDocument2">
+                </div>
+
+                <!-- Director 3 -->
+                <div class="mb-4">
+                    <label for="directorName3" class="form-label">Full Name (Director 3)</label>
+                    <input type="text" class="form-control" id="directorName3" placeholder="Enter director's name">
+                </div>
+                <div class="mb-4">
+                    <label for="directorAddress3" class="form-label">Address (Director 3)</label>
+                    <input type="text" class="form-control" id="directorAddress3" placeholder="Enter director's address">
+                </div>
+                <div class="mb-4">
+                    <label for="nextOfKin3" class="form-label">Next of Kin (Director 3)</label>
+                    <input type="text" class="form-control" id="nextOfKin3" placeholder="Enter next of kin">
+                </div>
+                <div class="mb-4">
+                    <label for="dob3" class="form-label">Date of Birth (Director 3)</label>
+                    <input type="date" class="form-control" id="dob3">
+                </div>
+                <div class="mb-4">
+                    <label for="nin3" class="form-label">NIN (Director 3)</label>
+                    <input type="text" class="form-control" id="nin3" placeholder="Enter NIN">
+                </div>
+                <div class="mb-4">
+                    <label for="idDocument3" class="form-label">Any of the Following (Driver's License, Voter's Card, or International Passport) (Director 3)</label>
+                    <input type="file" class="form-control" id="idDocument3">
+                </div>
+            </div>
+
+            <!-- Proof of Address -->
+            <h4 class="mt-5 mb-3">Proof of Address</h4>
+            <div class="mb-4">
+                <label for="proofOfAddress" class="form-label">Utility Bill (not more than 3 months old)</label>
+                <input type="file" class="form-control" id="proofOfAddress">
+            </div>
+
+            <!-- Submit Button -->
+            <div class="mt-4 text-center">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

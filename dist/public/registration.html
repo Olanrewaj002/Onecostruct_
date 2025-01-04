@@ -8,7 +8,7 @@
     <!-- #favicon -->
     <link
       rel="shortcut icon"
-      href="assets/images/onecostruct small.svg"
+      href="assets/images/favicon.png"
       type="image/x-icon"
     />
     <!-- #title -->
@@ -116,35 +116,64 @@
       <section class="registration clear__top">
         <div class="container">
           <div class="registration__area">
-            <h4 class="neutral-top">Log in</h4>
-            <!-- <p>
-              Don't have an account?
-              <a href="registration.html">Register here.</a>
-            </p> -->
-            <form  method="POST" class="form__login">
+            <h4 class="neutral-top">Registration</h4>
+            <form method="post" name="registration__form">
+              <div class="regi__type" id="individualNameFields">
+                <div class="input input--secondary">
+                  <label for="fullName">Full Name or Company Name*</label>
+                  <input
+                    type="text"
+                    name="fullName"
+                    id="fullName"
+                    placeholder="Enter your full name or company name"
+                  />
+                </div>
+              </div>
+
+              <!-- Fix the email ID mismatch -->
               <div class="input input--secondary">
-                <label for="loginMail">Email*</label>
+                <label for="email">Email*</label>
+                <!-- Changed from registrationMail to email -->
                 <input
                   type="email"
                   name="email"
-                  id="loginMail"
+                  id="email"
                   placeholder="Enter your email"
-                  required
+                />
+              </div>
+
+              <!-- Other Fields -->
+              <div class="input input--secondary">
+                <label for="address">Address*</label>
+                <input
+                  type="text"
+                  name="address"
+                  id="address"
+                  placeholder="Enter your address"
                 />
               </div>
               <div class="input input--secondary">
-                <label for="loginPass">Password*</label>
+                <label for="lga">LGA*</label>
                 <input
-                  type="password"
-                  name="password"
-                  id="loginPass"
-                  placeholder="Password"
-                  required
+                  type="text"
+                  name="lga"
+                  id="lga"
+                  placeholder="Enter your LGA"
                 />
               </div>
+              <div class="input input--secondary">
+                <label for="state">State*</label>
+                <input
+                  type="text"
+                  name="state"
+                  id="state"
+                  placeholder="Enter your state"
+                />
+              </div>
+
               <div class="input__button">
                 <button type="submit" class="button button--effect">
-                  Login
+                  Submit
                 </button>
               </div>
             </form>
@@ -190,36 +219,55 @@
     <script src="assets/js/plugin.js"></script>
     <!-- main js -->
     <script src="assets/js/main.js"></script>
-<script>
-document.querySelector('.form__login').addEventListener('submit', async (e) => {
-    e.preventDefault();
-    
-    const email = document.getElementById('loginMail').value;
-    const password = document.getElementById('loginPass').value;
-    
-    try {
-        // Get the current origin (handles both local and production URLs)
-        const baseUrl = window.location.origin;
-        const response = await fetch(`${baseUrl}/api/login`, {
-            method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
-            body: JSON.stringify({ email, password })
-        });
-        
-        if (!response.ok) {
-            const error = await response.text();
-            throw new Error(error);
-        }
+    <script src="assets/js/registration.js"></script>
+<script>document.querySelector('form[name="registration__form"]').addEventListener("submit", async (e) => {
+  e.preventDefault();
 
-        const data = await response.json();
-        window.location.href = '/admin-dashboard';
-    } catch (error) {
-        console.error('Error:', error);
-        alert('Login failed: ' + error.message);
+  const formData = {
+    fullName: document.getElementById("fullName").value.trim(),
+    email: document.getElementById("email").value.trim(),
+    address: document.getElementById("address").value.trim(),
+    lga: document.getElementById("lga").value.trim(),
+    state: document.getElementById("state").value.trim(),
+  };
+
+  // Clear previous error messages if they exist
+  document.querySelectorAll('.error-message').forEach(el => el.remove());
+
+  // Basic client-side validation
+  const missingFields = Object.entries(formData).filter(
+    ([key, value]) => !value
+  );
+
+  if (missingFields.length > 0) {
+    const errorFields = missingFields.map(([key]) => key).join(', ');
+    alert(`Please fill in the following fields: ${errorFields}`);
+    return; // Stop form submission
+  }
+
+  try {
+    const response = await fetch("/api/register", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    const data = await response.json();
+
+    if (!response.ok) {
+      // Handle error response
+      throw new Error(data.message || "Registration failed");
+    } else {
+      // Only show success if we get a 2xx response
+      alert("Registration successful!");
+      document.querySelector('form[name="registration__form"]').reset();
     }
-});
-</script>
+  } catch (error) {
+    alert(error.message);
+    console.error("Registration error:", error);
+  }
+});</script>
   </body>
 </html>
