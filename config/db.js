@@ -1,4 +1,3 @@
-
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 
@@ -13,10 +12,10 @@ const connectDB = async () => {
       useUnifiedTopology: true,
     });
 
-    console.log(`MongoDB Connected: ${conn.connection.host}`);
+    //console.log(⁠ MongoDB Connected: ${conn.connection.host} ⁠);
 
     mongoose.connection.on("error", (err) => {
-      console.error(`MongoDB connection error: ${err}`);
+      //console.error(⁠ MongoDB connection error: ${err} ⁠);
     });
 
     mongoose.connection.on("disconnected", () => {
@@ -29,7 +28,7 @@ const connectDB = async () => {
       process.exit(0);
     });
   } catch (error) {
-    console.error(`Error connecting to MongoDB: ${error.message}`);
+    //console.error(⁠ Error connecting to MongoDB: ${error.message} ⁠);
     process.exit(1);
   }
 };
