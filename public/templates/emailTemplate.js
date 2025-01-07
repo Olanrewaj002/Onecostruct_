@@ -189,7 +189,7 @@ export const generateEmailTemplate = ({
           <div class="email-wrapper">
             <div class="email-container">
               <div class="header">
-                <h1>New Contact Form Submission</h1>
+                <h1>New Contact Inquiry</h1>
                 <p>${currentDate}</p>
               </div>
               
