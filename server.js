@@ -8,6 +8,7 @@ import connectDB from "./config/db.js";
 import userRoutes from "./routes/user.js";
 import clientRoutes from "./routes/client.js";
 import propertyRoutes from "./routes/property.js";
+import contactRoutes from "./routes/contact.js";
 import { isAdmin, isAuthenticated } from "./middleware.js";
 
 dotenv.config();
@@ -63,6 +64,7 @@ if (!fs.existsSync(uploadsDir)) {
 app.use("/api", userRoutes);
 app.use("/api", clientRoutes);
 app.use("/api/properties", propertyRoutes);
+app.use("/api", contactRoutes);
 
 // Main routes
 app.get("/", (req, res) => {

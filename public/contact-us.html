@@ -36,13 +36,75 @@
 
     <!-- main css -->
     <link rel="stylesheet" href="assets/css/style.css" />
+<style>
+    /* Add these styles to your CSS */
+.success-message {
+    background: #ffffff;
+    padding: 40px 20px;
+    border-radius: 8px;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    animation: fadeIn 0.5s ease-out;
+}
 
+.success-content {
+    max-width: 400px;
+    margin: 0 auto;
+}
+
+.success-icon {
+    width: 80px;
+    height: 80px;
+    margin-bottom: 20px;
+    animation: scaleIn 0.5s ease-out;
+}
+
+.success-message h3 {
+    color: #2d3748;
+    font-size: 24px;
+    margin-bottom: 12px;
+}
+
+.success-message p {
+    color: #718096;
+    margin-bottom: 24px;
+}
+
+.error-message {
+    background: #FEE2E2;
+    color: #DC2626;
+    padding: 12px;
+    border-radius: 6px;
+    margin-bottom: 16px;
+    text-align: center;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+@keyframes scaleIn {
+    from {
+        transform: scale(0);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+</style>
 </head>
 
 <body>
 
     <!-- ==== header start ==== -->
-    <header class="header header--secondary">
+  <header class="header">
         <nav class="navbar navbar-expand-xl">
             <div class="container">
                 <a class="navbar-brand" href="index.html">
@@ -69,11 +131,7 @@
                                 Home
                             </a>
                             <!--===Remove comment to use this ===-->
-                            <ul class="dropdown-menu" aria-labelledby="navbarHomeDropdown">
-                                <li><a class="dropdown-item" href="index.html">Home</a></li>
-                                <!-- <li><a class="dropdown-item" href="index-two.html">Home Two</a></li>
-                                <li><a class="dropdown-item" href="index-three.html">Home Three</a></li> -->
-                            </ul>
+                         
                         </li>
                         <!--== Properties li comment ===-->
                         <li class="nav-item dropdown">
@@ -82,28 +140,12 @@
                                 Portfolio
                             </a>
                             <ul class="dropdown-menu" aria-labelledby="navbarPropertyDropdown">
-                                <li><a class="dropdown-item" href="properties.html">Portfolios</a></li>
+                                <li><a class="dropdown-item" href="portfolios.html">Portfolios</a></li>
                                 <!-- <li><a class="dropdown-item" href="property-details.html">Portfolio Details</a></li> -->
                                 <li><a class="dropdown-item" href="portfolio-alert.html">Portfolio Alert</a></li>
                             </ul>
                         </li>
 
-                        <!--=== loan li comment ===-->
-                        <!-- <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarLoanDropdown"
-                                role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                                Loan
-                            </a>
-                            <ul class="dropdown-menu" aria-labelledby="navbarLoanDropdown">
-                                <li><a class="dropdown-item" href="business-loan.html">Business Loan</a></li>
-                                <li><a class="dropdown-item" href="business-loan-details.html">Business Loan Details</a>
-                                </li>
-                                <li><a class="dropdown-item" href="loan-application.html">Loan Application</a></li>
-                            </ul>
-                        </li> -->
-                        <!-- <li class="nav-item">
-                            <a class="nav-link" href="list-your-property.html">List your property</a>
-                        </li> -->
                         <li class="nav-item dropdown">
                             <a class="nav-link dropdown-toggle" href="javascript:void(0)" id="navbarDropdown"
                                 role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -114,8 +156,6 @@
                                 <li><a class="dropdown-item" href="about-us.html">About Us</a></li>
                                 <li><a class="dropdown-item" href="affiliate-program.html">Affiliate Program</a></li>
                                 <li><a class="dropdown-item" href="blog.html">Blog</a></li>
-                                <!-- <li><a class="dropdown-item" href="blog-two.html">Blog Two</a></li> -->
-                                <!-- <li><a class="dropdown-item" href="blog-single.html">Blog Single</a></li> -->
                                 <li><a class="dropdown-item" href="career.html">Career</a></li>
                                 <li><a class="dropdown-item" href="career-details.html">Career Details</a></li>
                                 <li><a class="dropdown-item" href="how-it-works.html">How It Works</a></li>
@@ -211,7 +251,7 @@
                     <div class="section__header">
                         <h2 class="neutral-top">Ask a Question</h2>
                     </div>
-                    <form action="#" name="ask__from" method="post">
+                    <form  name="ask__from" method="post">
                         <div class="row">
                             <div class="col-sm-6">
                                 <div class="input input--secondary">
@@ -236,16 +276,7 @@
                         <div class="input input--secondary input__alt">
                             <label for="askNumber">Phone*</label>
                             <div class="input-group">
-                                <div class="input-group-prepend">
-                                    <select class="number__code__select" id="numberCodeSelectAlert">
-                                        <option selected value="0">+1</option>
-                                        <option value="1">+2</option>
-                                        <option value="2">+3</option>
-                                        <option value="3">+4</option>
-                                        <option value="4">+5</option>
-                                        <option value="5">+6</option>
-                                    </select>
-                                </div>
+                               
                                 <input type="number" name="ask__number" id="askNumber" required="required"
                                     placeholder="345-323-1234" />
                             </div>
@@ -610,6 +641,59 @@
     <script src="assets/js/plugin.js"></script>
     <!-- main js -->
     <script src="assets/js/main.js"></script>
+    <script>
+        // Frontend JavaScript
+document.querySelector('form[name="ask__from"]').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    
+    const form = e.target;
+    const submitButton = form.querySelector('button[type="submit"]');
+    submitButton.disabled = true;
+    submitButton.innerHTML = 'Sending...';
+
+    try {
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        const response = await fetch('/api/contact', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/json',
+            },
+            body: JSON.stringify(data)
+        });
+
+        if (response.ok) {
+            // Create success message container
+            const successDiv = document.createElement('div');
+            successDiv.className = 'success-message';
+            successDiv.innerHTML = `
+                <div class="success-content">
+                    <img src="/assets/images/checkmark-image.svg" alt="Success" class="success-icon" />
+                    <h3>Thank You!</h3>
+                    <p>Your message has been sent successfully.</p>
+                    <button class="button button--effect" onclick="location.reload()">Send Another Message</button>
+                </div>
+            `;
+
+            // Replace form with success message
+            form.replaceWith(successDiv);
+        } else {
+            throw new Error('Failed to send message');
+        }
+    } catch (error) {
+        console.error('Error:', error);
+        // Show error message
+        const errorDiv = document.createElement('div');
+        errorDiv.className = 'error-message';
+        errorDiv.textContent = 'Failed to send message. Please try again.';
+        form.insertBefore(errorDiv, form.firstChild);
+        
+        submitButton.disabled = false;
+        submitButton.innerHTML = 'Subscribe';
+    }
+});
+    </script>
 
 </body>
 
